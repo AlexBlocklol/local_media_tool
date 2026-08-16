@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "total": 5,
+    "downloaded": 5,
+    "failed_download": 0,
+    "animated_to_gif_ok": 3,
+    "static_to_png_ok": 2,
+    "avatar_filtered": 3
+  },
+  "items": [
+    {
+      "local_file": "gif/m-001.gif",
+      "format": "webp",
+      "is_animated": true
+    },
+    {
+      "local_file": "gif/m-002.gif",
+      "format": "webp",
+      "is_animated": true
+    },
+    {
+      "local_file": "gif/m-003.gif",
+      "format": "gif",
+      "is_animated": true
+    },
+    {
+      "local_file": "static/s-001.png",
+      "format": "png",
+      "is_animated": false
+    },
+    {
+      "local_file": "static/s-002.png",
+      "format": "jpg",
+      "is_animated": false
+    }
+  ]
+}

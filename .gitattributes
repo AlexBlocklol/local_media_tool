@@ -1,0 +1,14 @@
+# 统一行尾，避免 Windows 下 .bat/.ps1 因 LF/CRLF 转换导致闪退
+* text=auto
+
+# 批处理/PowerShell 脚本强制 CRLF（Windows 执行器依赖）
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Python / Markdown / 配置文件统一 LF
+*.py  text eol=lf
+*.md  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf

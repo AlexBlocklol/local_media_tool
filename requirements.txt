@@ -1,0 +1,8 @@
+# 本地媒体资源转码与整理工具 · Python 依赖
+# 适用 Python 3.11+（3.10 亦兼容）
+moviepy>=1.0.3         # 高层视频封装（可选引擎用；核心转换直接用 FFmpeg 保证画质）
+imageio>=2.31          # 图片/视频 I/O、元数据读取、sample 素材生成
+imageio-ffmpeg>=0.4.9  # 自带 FFmpeg 静态二进制，未装 FFmpeg 也能直接跑
+numpy>=1.24            # imageio / moviepy 的底层数组依赖
+Pillow>=9.0            # 图片处理：序列帧归一化、静态 GIF、输出尺寸探测
+PyYAML>=6.0            # 读取 config.yaml

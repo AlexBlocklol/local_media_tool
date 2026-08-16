@@ -1,0 +1,53 @@
+name: Build & Release
+
+# 触发条件：
+#   1) 推送 v* 标签（如 v1.0.0）时自动构建并发布 Release
+#   2) 手动触发（Actions 页面 → Run workflow）用于测试打包
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    name: Build Windows exe
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # 用稳定版本打包；本机 3.14 太新，PyInstaller 支持不稳定
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Build converter exe
+        shell: pwsh
+        run: |
+          pyinstaller --noconfirm --clean --onefile --name local_media_tool `
+            --add-data "config.yaml;." `
+            --collect-all imageio_ffmpeg `
+            main.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: local_media_tool-windows
+          path: dist/local_media_tool.exe
+
+      - name: Publish Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/local_media_tool.exe
+          generate_release_notes: true

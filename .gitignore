@@ -1,0 +1,36 @@
+# ===== 运行时生成目录 / 用户数据（禁止提交、禁止打包） =====
+out/
+output/
+downloads/
+edge_debug_profile/
+新建文件夹*/
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 调试 / 临时产物 =====
+.mock_test_tmp/
+*.bak
+
+# ===== 打包构建产物（PyInstaller） =====
+build/
+dist/
+*.spec
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+
+# ===== 高风险 / 自动化模块（不提交） =====
+/scripts/
+start.bat
+start.ps1
+启动调试器.bat
+tests/test_scripts_mock.py
+
+# ===== 系统杂项 =====
+Thumbs.db
+.DS_Store
