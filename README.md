@@ -188,3 +188,7 @@ python tests/test_run.py
 ## 许可证 (License)
 
 本项目采用 [MIT 许可证](LICENSE)，`Copyright (c) 2026 AlexBlock_lol`。可自由使用、修改、分发，保留版权声明即可。
+
+## 联系方式 (Contact)
+
+- 🔗 GitHub: https://github.com/AlexBlocklol
